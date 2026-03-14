@@ -6,57 +6,92 @@ package Modelo;
 
 /**
  *
- * @author alunocmc
+ * @author edsonmigueljunior
  */
 public class Usuario {
     
     private int Id;
     private String Username;
-    private String Senha;
+    private String Email;
+    private String SenhaHash;
+    private Role role;
     
-    private Usuario(Builder build){
+    private Usuario(Builder build) {
         this.Id = build.Id;
         this.Username = build.Username;
-        this.Senha = build.Senha;
+        this.Email = build.Email;
+        this.SenhaHash = build.SenhaHash;
+        this.role = build.role;
     }
     
-    public int getId(){
+    public int getId() {
+        
         return Id;
     }
     
-    public String getUsername(){
+    public String getUsername() {
+        
         return Username;
     }
     
-    public String getSenha(){
-        return Senha;
+    public String getEmail() {
+        
+        return Email;
+    }
+    
+    public String getSenhaHash() {
+        
+        return SenhaHash;
+    }
+    
+    public Role getRole() {
+        
+        return role;
     }
     
     public static class Builder {
         
         private int Id;
         private String Username;
-        private String Senha;
+        private String Email;
+        private String SenhaHash;
+        private Role role;
         
-        public Builder setId() {
+        public Builder setId(int Id) {
             
             this.Id = Id;
             return this;
+            
         }
         
-        public Builder setUsername() {
+        public Builder setUsername(String Username) {
             
             this.Username = Username;
             return this;
+            
         }
         
-        public Builder setSenha() {
+        public Builder setEmail(String Email) {
             
-            this.Senha = Senha;
+            this.Email = Email;
+            return this;
+            
+        }
+        
+        public Builder setSenhaHash(String SenhaHash) {
+            
+            this.SenhaHash = SenhaHash;
+            return this;
+            
+        }
+        
+        public Builder setRole (Role role) {
+            
+            this.role = role;
             return this;
         }
         
-        public Usuario Build () {
+        public Usuario Build() {
             
             return new Usuario(this);
         }
